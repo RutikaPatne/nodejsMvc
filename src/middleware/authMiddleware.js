@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv'
 dotenv.config();
 
-import {pool} from '../config/db.mjs'
+import {pool} from '../config/db.js'
 
 const authMiddleware = async (req, res, next) => {
     const header = req.headers.authorization;
