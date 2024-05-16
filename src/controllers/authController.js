@@ -1,12 +1,12 @@
 
 //all functions imported and exported to routes for routing
 
-import { pool } from '../config/db.mjs'
+import { pool } from '../config/db.js'
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv'
 
-import { updateUser,deleteUser } from '../models/userModel.mjs';
+import { updateUser,deleteUser } from '../models/userModel.js';
 dotenv.config();
 
 
