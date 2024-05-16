@@ -1,5 +1,5 @@
 //crud 
-import { pool } from '../config/db.mjs'
+import { pool } from '../config/db.js'
 
 const updateUser = (req, res) => {
     let id = req.query.id
