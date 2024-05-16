@@ -1,8 +1,12 @@
+
+//all functions imported and exported to routes for routing
+
 import { pool } from '../config/db.mjs'
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv'
 
+import { updateUser,deleteUser } from '../models/userModel.mjs';
 dotenv.config();
 
 
@@ -67,34 +71,6 @@ const logoutFunction = (req, res) => {
 
 
 
-const updateUser = (req, res) => {
-    let id = req.query.id
-    const { username, password } = req.body
-
-    pool.query(`UPDATE usertable SET username=$1 , password=$2  where id=$3`, [username, password, id], (err, result) => {
-        if (err) {
-            throw err
-        }
-        res.json({
-            data: "updated successfully"
-        })
-    })
-}
-
-
-
-const deleteUser = (req, res) => {
-    let id = req.query.id;
-
-    pool.query(`DELETE FROM usertable WHERE id=$1`, [id], (err, result) => {
-        if (err) {
-            throw err
-        }
-        res.json({
-            msg: `user with ${id} deleted successfully`
-        })
-    })
-}
 
 
 export { register, loginFunction, logoutFunction, updateUser, deleteUser, profile };
