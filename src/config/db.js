@@ -1,14 +1,9 @@
+
 import pkg from 'pg';
 const { Pool } = pkg;
 
+import config from './config.mjs';
 
-const pool = new Pool
-    ({
-        user :'postgres',
-        host: 'localhost',
-        database: 'nodeDb',
-        password: '1234',
-        port: 5432
-    });
+const pool = new Pool(config);
 
-export {pool}
+export { pool };
